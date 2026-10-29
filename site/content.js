@@ -23,14 +23,14 @@ window.PORTFOLIO = {
      THE BASICS
      ------------------------------------------------------------------------- */
   site: {
-    name: "Your Name",
-    role: "UGC Creator & Creative Strategist",
+    name: "Nathan Winn",
+    role: "Content Producer & Social Media Marketer",
     logo: null,          // optional, e.g. "assets/logo.png" — appears next to your name in the top bar
 
     // How the site looks in Google and when someone shares your link.
     url: "",             // your live address, e.g. "https://yourname.vercel.app"
     title: "",           // blank = "Your Name — Your Role"
-    description: "UGC creator and creative strategist making native, scroll-stopping videos for brands.",
+    description: "Nathan Winn is a Tampa-based cinematographer, colorist and filmmaker producing marketing campaigns, videography, photography and social media content for brands.",
     shareImage: null,    // 1200×630 image shown in link previews, e.g. "assets/share.jpg"
     favicon: null        // browser-tab icon; blank = a letter icon in your accent colour
   },
@@ -54,10 +54,10 @@ window.PORTFOLIO = {
                  of opening an email.
      ------------------------------------------------------------------------- */
   contact: {
-    email: "hello@yourname.com",
+    email: "hello@yourname.com",   // ← Nathan's email still needed
     bookingUrl: "",
-    buttonLabel: "Let’s Connect",
-    socials: [
+    buttonLabel: "Start a Project",
+    socials: [   // ← Nathan's handles still needed
       { label: "Instagram", url: "https://instagram.com/yourhandle" },
       { label: "TikTok",    url: "https://tiktok.com/@yourhandle" },
       { label: "LinkedIn",  url: "https://linkedin.com/in/yourhandle" },
@@ -69,14 +69,16 @@ window.PORTFOLIO = {
   /* -------------------------------------------------------------------------
      TOP OF THE PAGE
      headline: each line in the list is its own line on the page.
+               Write a line as { text: "…", fit: true } to make it grow until it's
+               exactly as wide as the longest other line.
      ------------------------------------------------------------------------- */
   hero: {
-    eyebrow: "Your Name — UGC Creator & Creative Strategist",   // small grey line above the headline
+    eyebrow: "Nathan Winn — Content Producer & Social Media Marketer",   // small grey line above the headline
     headline: [
-      "Scroll-Stopping UGC",
-      "Built to Convert"
+      "Content Production",
+      { text: "REFRAMED", fit: true }
     ],
-    intro: "I create native, story-driven videos that feel like content — not ads — and give your product a clear reason to matter.",
+    intro: "From commercial sets to independent films, I’ve learned what makes people feel something on screen. Now I bring that craft to brands, with a strategy behind every frame.",
     workButtonLabel: "View My Work"
   },
 
@@ -85,6 +87,8 @@ window.PORTFOLIO = {
      shape: "wide"   = normal horizontal logo (default)
             "tall"   = stacked / taller logo
             "square" = logo with its own background block (app-icon style)
+     height: optional size in pixels. Wide logos look bigger than square ones at
+             the same height, so give wide logos a smaller number to balance them.
      No logo file yet? Leave logo as null and the brand name shows as text.
      Tip: transparent PNGs or SVGs look best. Aim for 6+ brands.
      ------------------------------------------------------------------------- */
@@ -92,13 +96,15 @@ window.PORTFOLIO = {
     label: "Past Collaborations",
     scrollSeconds: 64,           // lower = faster
     logos: [
-      { name: "Brand One",   logo: null },
-      { name: "Brand Two",   logo: null },
-      { name: "Brand Three", logo: null },
-      { name: "Brand Four",  logo: null },
-      { name: "Brand Five",  logo: null },
-      { name: "Brand Six",   logo: null }
-      // e.g. { name: "Replit", logo: "assets/logos/replit.png", shape: "wide" }
+      { name: "HBO",                     logo: "assets/logos/hbo.png",                     height: 30 },
+      { name: "Apple TV",                logo: "assets/logos/apple-tv.png",                height: 34 },
+      { name: "New York Fashion Week",   logo: "assets/logos/new-york-fashion-week.png",   height: 42 },
+      { name: "University of Tampa",     logo: "assets/logos/university-of-tampa.png",     height: 48 },
+      { name: "Annapolis Film Festival", logo: "assets/logos/annapolis-film-festival.png", height: 40 },
+      { name: "Gateway Subs",            logo: "assets/logos/gateway-subs.png",            height: 46 },
+      { name: "Jackpot Media",           logo: "assets/logos/jackpot-media.png",           height: 36 },
+      { name: "Hallee Media & Design",   logo: "assets/logos/hallee-media-design.png",     height: 54 },
+      { name: "BM",                      logo: "assets/logos/bm.png",                      height: 46 }
     ]
   },
 
@@ -110,12 +116,11 @@ window.PORTFOLIO = {
     navLabel: "About",           // name in the top menu ("" hides it from the menu)
     heading: "The Person Behind the Content.",
     paragraphs: [
-      "I’m Your Name. Start with a short line about who you are and how you got into creating.",
-      "Then tell brands what you’re great at — the kind of content you make, the results it gets, and what working with you is like.",
-      "Finish with what you’re looking for: the brands, products or projects you want more of."
+      "I’m Nathan Winn, a Tampa-based cinematographer, colorist and filmmaker. My work has put me on sets for HBO, Apple TV and Fashion Week, alongside commercial shoots for global brands and independent feature and short films.",
+      "I produce marketing campaigns for brands, from videography and photography to social media content, and I’ve independently managed and branded accounts with over 1.1 million followers."
     ],
-    photo: { src: null, alt: "Your Name" },   // a 4:5 portrait, e.g. "assets/photos/about.jpg"
-    specialties: ["UGC", "Product Demos", "Talking Head", "Green Screen", "Hooks & Scripting", "Creative Strategy"]
+    photo: { src: "assets/photos/nathan.jpg", alt: "Nathan Winn holding a camera outdoors" },   // a 4:5 portrait
+    specialties: ["Cinematography", "Color Grading", "Commercial Production", "Videography", "Photography", "Marketing Campaigns", "Social Media"]
   },
 
   /* -------------------------------------------------------------------------
@@ -131,22 +136,22 @@ window.PORTFOLIO = {
       "The Results Are Measurable."
     ],
     stats: [
-      { value: "250M+", label: "Total Views" },
-      { value: "5+",    label: "Years Creating" },
-      { value: "400+",  label: "Videos Produced" },
-      { value: "30+",   label: "Brands Served" }
+      { value: "6",   label: "Years of Experience" },
+      { value: "20+", label: "Brands Served" },
+      { value: "2M",  label: "Followers Managed" },
+      { value: "5",   label: "Campaigns Produced" }
     ],
-    caseStudiesLabel: "Case Studies",
+    caseStudiesLabel: "Campaign Case Studies",
     caseStudies: [
       {
-        client: "Example Brand",
+        client: "Client Name",   // ← a real campaign from Nathan still needed
         panels: [
-          { platform: "TikTok", stat: "Views: 4.2M", image: null,
-            description: "What you did and what happened — e.g. grew views from 300K to 4.2M in eight weeks." },
-          { platform: "Instagram", stat: "Reach: 1.8M", image: null,
-            description: "Keep it to one or two sentences with a number in it." },
+          { platform: "Instagram", stat: "", image: null,
+            description: "What Nathan produced for this campaign and what it did, e.g. reach, views or followers gained." },
+          { platform: "TikTok", stat: "", image: null,
+            description: "One or two sentences with a number in it." },
           { platform: "YouTube", stat: "", image: null,
-            description: "Screenshots of your analytics work great here (16:10 crop)." }
+            description: "Analytics screenshots work great here (16:10 crop)." }
         ]
       }
       // Add another client with the same shape and a new tab appears:
@@ -162,23 +167,28 @@ window.PORTFOLIO = {
      poster:   the thumbnail image (made for you by `npm run videos`)
      category: filter buttons are built from the categories you use.
      link:     the public post (shows a "View Original" button), or null.
+     drive:    instead of videoUrl, a Google Drive share link (set to "Anyone with
+               the link"). The card uses Drive's thumbnail and plays in Drive's player.
      ------------------------------------------------------------------------- */
   ugc: {
     show: true,
-    navLabel: "UGC Work",
-    heading: "Featured UGC Work",
-    subheading: "Content designed to feel native, hold attention, and give the product a clear reason to matter.",
+    navLabel: "Work",
+    heading: "Featured Work",
+    subheading: "Campaigns, commercials and social content, shot and graded with a filmmaker’s eye.",
     buttonLabel: "Let’s Create Something",
     videos: [
-      { title: "Unboxing + First Impressions", brand: "Brand One",   category: "Product Demos", platform: "TikTok",
+      { title: "Social Media Campaign · Video 1", brand: "Gateway Subs", category: "Social Content", platform: "",
+        drive: "https://drive.google.com/file/d/1XsSyPoy6AWPeROcBJ9yPfP2OOmYkDWm-/view?usp=sharing",
+        link: null, description: "Social media campaign marketing deliverable for Gateway Subs.", results: "" },
+      { title: "Social Media Campaign · Video 2", brand: "Gateway Subs", category: "Social Content", platform: "",
+        drive: "https://drive.google.com/file/d/1Quykjqe4lL_xOyWqy2u91Da0Bxi-26Y3/view?usp=sharing",
+        link: null, description: "Social media campaign marketing deliverable for Gateway Subs.", results: "" },
+      // ← Nathan's other videos still needed
+      { title: "Project Title", brand: "Client Name", category: "Commercial",     platform: "",
         videoUrl: null, poster: null, link: null, description: "", results: "" },
-      { title: "3 Reasons I Switched",        brand: "Brand Two",   category: "Talking Head",  platform: "Instagram",
+      { title: "Project Title", brand: "Client Name", category: "Brand Film",     platform: "",
         videoUrl: null, poster: null, link: null, description: "", results: "" },
-      { title: "The App That Saves Me Hours", brand: "Brand Three", category: "SaaS & AI",     platform: "TikTok",
-        videoUrl: null, poster: null, link: null, description: "", results: "" },
-      { title: "Why This Went Viral",         brand: "",            category: "Green Screen",  platform: "YouTube",
-        videoUrl: null, poster: null, link: null, description: "", results: "" },
-      { title: "Morning Routine Feature",     brand: "Brand Four",  category: "Lifestyle",     platform: "Instagram",
+      { title: "Project Title", brand: "Client Name", category: "Fashion",        platform: "",
         videoUrl: null, poster: null, link: null, description: "", results: "" }
       // Copy a line to add another video. Example of a finished one:
       // ,{ title: "Day 42 Food Review", brand: "Carnivore Crisps", category: "Product Demos", platform: "Instagram",
@@ -197,35 +207,35 @@ window.PORTFOLIO = {
     show: true,
     navLabel: "",                // e.g. "Testimonials" to add it to the menu
     heading: "What People Say About the Work.",
-    videos: [
-      { name: "Client Name", quote: "“One sentence that sums up the result.”", vimeo: null, video: null },
-      { name: "Client Name", quote: "“We got monetized in 60 days.”",           vimeo: null, video: null }
+    videos: [   // ← Nathan's testimonials still needed
+      { name: "Client Name", quote: "“One sentence from the client about the result.”", vimeo: null, video: null },
+      { name: "Client Name", quote: "“One sentence from the client about the result.”", vimeo: null, video: null }
     ],
     quotes: [
-      { quote: "Paste a real quote from a client here. Two or three sentences about the result and what it was like to work together.",
-        name: "Client Name", role: "CMO", company: "Brand One", headshot: null, image: null },
+      { quote: "A real quote from one of Nathan’s clients goes here: the campaign, the result, and what it was like to work with him.",
+        name: "Client Name", role: "Role", company: "Company", headshot: null, image: null },
       { quote: "Short quotes work great too.",
-        name: "Client Name", role: "Founder", company: "Brand Two", headshot: null, image: null },
-      { quote: "Got a screenshot of a happy DM instead? Set image to the screenshot path and it shows that instead of this text.",
-        name: "Client Name", role: "CEO", company: "Brand Three", headshot: null, image: null }
+        name: "Client Name", role: "Role", company: "Company", headshot: null, image: null },
+      { quote: "A screenshot of a client message works too. Set image to the screenshot path and it shows instead of this text.",
+        name: "Client Name", role: "Role", company: "Company", headshot: null, image: null }
     ]
   },
 
   /* -------------------------------------------------------------------------
-     DESIGN WORK — thumbnails, carousels, graphics.
-     ratio: "16 / 9" for YouTube thumbnails, "1 / 1" square, "4 / 5" portrait.
-     images: for carousels, list every slide; the viewer gets arrows.
+     PHOTOGRAPHY — stills from shoots (this section can hold any image work).
+     ratio: "3 / 2" landscape, "4 / 5" portrait, "1 / 1" square, "16 / 9" wide.
+     images: for a set from one shoot, list every photo; the viewer gets arrows.
      ------------------------------------------------------------------------- */
   design: {
     show: true,
-    navLabel: "Design",
-    heading: "Content Starts Before the Video Plays.",
-    subheading: "Thumbnails created to package ideas, stop the scroll, and make the content impossible to ignore.",
-    items: [
-      { title: "Thumbnail Title", client: "Brand One",   ratio: "16 / 9", cover: null, images: [], description: "" },
-      { title: "Thumbnail Title", client: "Brand Two",   ratio: "16 / 9", cover: null, images: [], description: "" },
-      { title: "Thumbnail Title", client: "Brand Three", ratio: "16 / 9", cover: null, images: [], description: "" },
-      { title: "Thumbnail Title", client: "Brand Four",  ratio: "16 / 9", cover: null, images: [], description: "" }
+    navLabel: "Photography",
+    heading: "Stills With a Cinematic Eye.",
+    subheading: "Campaign, product and event photography, lit and color graded like a film.",
+    items: [   // ← Nathan's photos still needed
+      { title: "Shoot Title", client: "Client Name", ratio: "3 / 2", cover: null, images: [], description: "" },
+      { title: "Shoot Title", client: "Client Name", ratio: "3 / 2", cover: null, images: [], description: "" },
+      { title: "Shoot Title", client: "Client Name", ratio: "3 / 2", cover: null, images: [], description: "" },
+      { title: "Shoot Title", client: "Client Name", ratio: "3 / 2", cover: null, images: [], description: "" }
       // Carousel example:
       // ,{ title: "5 Hook Formulas", client: "Brand Five", ratio: "4 / 5", cover: "assets/design/hooks-1.jpg",
       //    images: ["assets/design/hooks-1.jpg", "assets/design/hooks-2.jpg", "assets/design/hooks-3.jpg"] }
@@ -236,7 +246,7 @@ window.PORTFOLIO = {
      FOOTER
      ------------------------------------------------------------------------- */
   footer: {
-    tagline: "UGC Creator and Creative Strategist",
+    tagline: "Content Producer & Social Media Marketer · Tampa, FL",
     copyrightName: ""            // blank = your name
   }
 };

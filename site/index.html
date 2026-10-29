@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- seo:start — written from content.js by `npm run build`. Don't edit by hand. -->
-<title>Your Name — UGC Creator &amp; Creative Strategist</title>
-<meta name="description" content="UGC creator and creative strategist making native, scroll-stopping videos for brands.">
-<meta property="og:title" content="Your Name — UGC Creator &amp; Creative Strategist">
-<meta property="og:description" content="UGC creator and creative strategist making native, scroll-stopping videos for brands.">
+<title>Nathan Winn — Content Producer &amp; Social Media Marketer</title>
+<meta name="description" content="Nathan Winn is a Tampa-based cinematographer, colorist and filmmaker producing marketing campaigns, videography, photography and social media content for brands.">
+<meta property="og:title" content="Nathan Winn — Content Producer &amp; Social Media Marketer">
+<meta property="og:description" content="Nathan Winn is a Tampa-based cinematographer, colorist and filmmaker producing marketing campaigns, videography, photography and social media content for brands.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23FF5A1F%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20text-anchor%3D%22middle%22%20font-family%3D%22-apple-system%2CHelvetica%2CArial%2Csans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%3EY%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23FF5A1F%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20text-anchor%3D%22middle%22%20font-family%3D%22-apple-system%2CHelvetica%2CArial%2Csans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%3EN%3C%2Ftext%3E%3C%2Fsvg%3E">
 <meta name="theme-color" content="#F3F0EB">
 <!-- seo:end -->
 <!--
@@ -76,9 +76,9 @@
       <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px);">
         <div style="text-align: center; display: flex; flex-direction: column; align-items: center; min-width: 0;">
           <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);">{{ hero.eyebrow }}</p>
-          <h1 data-reveal="1" style="margin: 20px auto 0; max-width: 16ch; font-size: clamp(38px, 5vw, 74px); font-weight: 700; line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance;">
+          <h1 id="hero-headline" data-reveal="1" style="margin: 20px auto 0; max-width: {{ hero.maxWidth }}; font-size: calc(clamp(38px, 5vw, 74px) * {{ hero.scale }}); font-weight: 700; line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance;">
             <sc-for list="{{ hero.headline }}" as="line" hint-placeholder-count="3">
-              <span style="display: block;">{{ line }}</span>
+              <span style="display: block;"><span data-hl-line="1" style="display: inline-block; vertical-align: top; white-space: {{ line.ws }}; font-size: {{ line.size }};">{{ line.text }}</span></span>
             </sc-for>
           </h1>
           <sc-if value="{{ hero.hasIntro }}" hint-placeholder-val="{{ true }}">
@@ -102,10 +102,10 @@
                   <sc-for list="{{ marquee }}" as="b" hint-placeholder-count="12">
                     <div aria-hidden="{{ b.aria }}" style="flex: 0 0 auto; height: 56px; padding: 0 clamp(22px, 2.4vw, 40px); display: flex; align-items: center; justify-content: center;">
                       <sc-if value="{{ b.isWide }}" hint-placeholder-val="{{ false }}">
-                        <img src="{{ b.logo }}" alt="{{ b.alt }}" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; opacity: 0.92; transition: opacity .35s ease, transform .35s ease;" style-hover="opacity: 1; transform: scale(1.04);">
+                        <img src="{{ b.logo }}" alt="{{ b.alt }}" loading="lazy" style="height: {{ b.h }}; width: auto; max-width: 190px; object-fit: contain; opacity: 0.92; transition: opacity .35s ease, transform .35s ease;" style-hover="opacity: 1; transform: scale(1.04);">
                       </sc-if>
                       <sc-if value="{{ b.isTall }}" hint-placeholder-val="{{ false }}">
-                        <img src="{{ b.logo }}" alt="{{ b.alt }}" loading="lazy" style="height: 56px; width: auto; max-width: 140px; object-fit: contain; opacity: 0.92; transition: opacity .35s ease, transform .35s ease;" style-hover="opacity: 1; transform: scale(1.04);">
+                        <img src="{{ b.logo }}" alt="{{ b.alt }}" loading="lazy" style="height: {{ b.h }}; width: auto; max-width: 140px; object-fit: contain; opacity: 0.92; transition: opacity .35s ease, transform .35s ease;" style-hover="opacity: 1; transform: scale(1.04);">
                       </sc-if>
                       <sc-if value="{{ b.isSquare }}" hint-placeholder-val="{{ false }}">
                         <img src="{{ b.logo }}" alt="{{ b.alt }}" loading="lazy" style="height: 52px; width: 52px; object-fit: contain; border-radius: 12px; opacity: 0.92; transition: opacity .35s ease, transform .35s ease;" style-hover="opacity: 1; transform: scale(1.04);">
@@ -243,7 +243,7 @@
               <button type="button" onClick="{{ v.on }}" style="cursor: pointer; padding: 0; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: 0 1px 2px rgba(10,10,10,0.03); overflow: hidden; text-align: left; font-family: inherit; display: flex; flex-direction: column; transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 12px 32px rgba(10,10,10,0.09);">
                 <div style="position: relative; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; background: var(--ph);">
                   <sc-if value="{{ v.hasPoster }}" hint-placeholder-val="{{ false }}">
-                    <img src="{{ v.poster }}" alt="{{ v.alt }}" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+                    <img src="{{ v.poster }}" alt="{{ v.alt }}" loading="lazy" referrerPolicy="no-referrer" style="display: block; width: 100%; height: 100%; object-fit: cover;">
                   </sc-if>
                   <sc-if value="{{ v.videoThumb }}" hint-placeholder-val="{{ false }}">
                     <video src="{{ v.thumbSrc }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-label="{{ v.alt }}" style="display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
@@ -463,6 +463,11 @@
           <sc-if value="{{ video.hasVideo }}" hint-placeholder-val="{{ false }}">
             <video src="{{ video.videoUrl }}" poster="{{ video.poster }}" controls="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; border-radius: 16px;"></video>
           </sc-if>
+          <sc-if value="{{ video.isDrive }}" hint-placeholder-val="{{ false }}">
+            <div style="position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; background: #000;">
+              <iframe src="{{ video.driveSrc }}" title="{{ video.alt }}" allow="autoplay; fullscreen" allowFullScreen="{{ true }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+            </div>
+          </sc-if>
           <sc-if value="{{ video.noVideo }}" hint-placeholder-val="{{ true }}">
             <div role="img" aria-label="{{ video.alt }}" style="width: 100%; aspect-ratio: 9 / 16; border-radius: 16px; border: 1px dashed #3A3A3A; background-color: #141414; background-image: repeating-linear-gradient(135deg, #1B1B1B 0 12px, #141414 12px 24px); display: flex; align-items: flex-end; padding: 18px;">
               <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 1.5; color: #A7A7A7;">{{ video.ph }}</span>
@@ -566,7 +571,9 @@ class Component extends DCLogic {
     lightIdx: null,
     slide: 0,
     t: 0,
-    statVals: null
+    statVals: null,
+    hlScale: 1,
+    hlSizes: null
   };
 
   normalize(P) {
@@ -582,6 +589,10 @@ class Component extends DCLogic {
     const tm = obj(P.testimonials), design = obj(P.design), footer = obj(P.footer);
     const name = str(site.name) || "Your Name";
     const role = str(site.role);
+    // Headline lines are plain text, or { text, fit: true } to stretch a line to the widest one.
+    const headline = (Array.isArray(hero.headline) ? hero.headline : lines(hero.headline))
+      .map((l) => (l && typeof l === "object" ? { text: str(l.text), fit: !!l.fit } : { text: str(l), fit: false }))
+      .filter((l) => l.text);
 
     return {
       name, role, logo: str(site.logo) || null,
@@ -592,7 +603,7 @@ class Component extends DCLogic {
 
       hero: {
         eyebrow: hero.eyebrow != null ? str(hero.eyebrow) : [name, role].filter(Boolean).join(" — "),
-        headline: lines(hero.headline).length ? lines(hero.headline) : [name],
+        headline: headline.length ? headline : [{ text: name, fit: false }],
         intro: str(hero.intro),
         button: str(hero.workButtonLabel) || "View My Work"
       },
@@ -622,7 +633,14 @@ class Component extends DCLogic {
         show: on(ugc), navLabel: ugc.navLabel != null ? str(ugc.navLabel) : "UGC Work",
         heading: str(ugc.heading), subheading: str(ugc.subheading),
         buttonLabel: ugc.buttonLabel != null ? str(ugc.buttonLabel) : "Let’s Create Something",
-        videos: arr(ugc.videos).map((v, i) => Object.assign({}, v, { n: pad(i) }))
+        videos: arr(ugc.videos).map((v, i) => {
+          const driveId = this.driveId(v.drive);
+          return Object.assign({}, v, {
+            n: pad(i), driveId,
+            // Google Drive videos use Drive's own thumbnail unless a poster is set.
+            poster: v.poster || (driveId ? "https://drive.google.com/thumbnail?id=" + driveId + "&sz=w720" : null)
+          });
+        })
       },
 
       testimonials: {
@@ -643,8 +661,38 @@ class Component extends DCLogic {
     };
   }
 
+  // Accepts a Google Drive share link (…/file/d/ID/view, …?id=ID) or a bare file ID.
+  driveId(x) {
+    const s = x == null ? "" : String(x).trim();
+    const m = /\/d\/([\w-]{10,})/.exec(s) || /[?&]id=([\w-]{10,})/.exec(s);
+    return m ? m[1] : (/^[\w-]{10,}$/.test(s) ? s : null);
+  }
+
   reduced() {
     return typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  // Lines marked fit: true grow until they're as wide as the widest other line. If the
+  // headline is then wider than the screen, the whole headline scales down to fit.
+  fitHeadline() {
+    const lines = this.C.hero.headline;
+    if (!lines.some((l) => l.fit)) return;
+    const h1 = document.getElementById("hero-headline");
+    if (!h1 || !h1.parentElement) return;
+    const spans = Array.from(h1.querySelectorAll("[data-hl-line]"));
+    if (spans.length !== lines.length) return;
+    const sizes = this.state.hlSizes || lines.map(() => 1);
+    // Width of each line at 1em of the current headline size (text width scales linearly with font size).
+    const unit = spans.map((s, i) => s.getBoundingClientRect().width / sizes[i]);
+    const fixed = unit.filter((u, i) => !lines[i].fit);
+    const target = Math.max.apply(null, fixed.length ? fixed : unit);
+    if (!target) return;
+    const next = lines.map((l, i) => (l.fit && unit[i] ? target / unit[i] : 1));
+    const scale = Math.min(1, this.state.hlScale * h1.parentElement.clientWidth / target);
+    const same = (a, b) => Math.abs(a - b) < 0.003;
+    if (!same(scale, this.state.hlScale) || next.some((v, i) => !same(v, sizes[i]))) {
+      this.setState({ hlSizes: next, hlScale: scale });
+    }
   }
 
   componentDidMount() {
@@ -654,7 +702,9 @@ class Component extends DCLogic {
       const de = document.documentElement;
       const w = Math.max(de ? de.clientWidth : 0, document.body ? document.body.clientWidth : 0, window.innerWidth || 0);
       if (w && w !== this.state.vw) this.setState({ vw: w });
+      this.fitHeadline();
     };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this._measure && this._measure());
     this._onResize = this._measure;
     window.addEventListener("resize", this._onResize);
     if (typeof ResizeObserver !== "undefined") {
@@ -783,6 +833,7 @@ class Component extends DCLogic {
     const st = this.state;
     const w = st.vw;
     const isMobile = w < 860;
+    const fitted = C.hero.headline.some((l) => l.fit);
 
     // Which sections have something to show. Empty sections hide themselves.
     const show = {
@@ -802,6 +853,11 @@ class Component extends DCLogic {
 
     const nav = visible.filter((k) => C[k].navLabel).map((k) => ({ label: C[k].navLabel, id: k }));
     const workId = ["ugc", "design", "results"].find((k) => show[k]);
+
+    // Repeat short logo lists so the scrolling strip never shows a gap; the strip is then doubled for a seamless loop.
+    const logos = C.brands.logos;
+    let strip = [];
+    while (logos.length && strip.length < 10) strip = strip.concat(logos);
 
     const external = !!C.bookingUrl;
     const mailto = C.email ? "mailto:" + C.email : "#";
@@ -827,8 +883,10 @@ class Component extends DCLogic {
       description: v.description || "", hasDescription: !!v.description,
       results: v.results || "", hasResults: !!v.results,
       poster: v.poster || undefined,
-      videoUrl: v.videoUrl, hasVideo: !!v.videoUrl, noVideo: !v.videoUrl,
-      alt: v.title || "UGC video " + v.n, ph: "Add videoUrl + poster → ugc.videos[" + vi + "]",
+      videoUrl: v.videoUrl, hasVideo: !!v.videoUrl, noVideo: !v.videoUrl && !v.driveId,
+      isDrive: !v.videoUrl && !!v.driveId,
+      driveSrc: v.driveId ? "https://drive.google.com/file/d/" + v.driveId + "/preview" : "",
+      alt: v.title || "Video " + v.n, ph: "Add videoUrl + poster (or a drive link) → ugc.videos[" + vi + "]",
       link: v.link, hasLink: !!v.link
     } : {};
 
@@ -874,14 +932,22 @@ class Component extends DCLogic {
       ctaTarget: external ? "_blank" : "_self",
 
       show, bg,
-      hero: Object.assign({}, C.hero, { hasIntro: !!C.hero.intro }),
+      hero: Object.assign({}, C.hero, {
+        hasIntro: !!C.hero.intro,
+        headline: C.hero.headline.map((l, i) => ({
+          text: l.text, ws: fitted ? "nowrap" : "normal", size: ((st.hlSizes && st.hlSizes[i]) || 1) + "em"
+        })),
+        maxWidth: fitted ? "none" : "16ch",
+        scale: st.hlScale
+      }),
 
       brandsLabel: C.brands.label,
       marqueeDur: C.brands.seconds + "s",
-      marquee: C.brands.logos.concat(C.brands.logos).map((b, i) => {
+      marquee: strip.concat(strip).map((b, i) => {
         const shape = b.logo ? (b.shape || "wide") : "";
         return {
-          logo: b.logo, alt: b.name || "", aria: i >= C.brands.logos.length ? "true" : "false",
+          logo: b.logo, alt: b.name || "", aria: i >= logos.length ? "true" : "false",
+          h: (Number(b.height) || (shape === "tall" ? 56 : 34)) + "px",
           isWide: shape === "wide", isTall: shape === "tall", isSquare: shape === "square", noImg: !b.logo
         };
       }),
@@ -917,11 +983,11 @@ class Component extends DCLogic {
         .filter(({ wk }) => ugcFilter === "All" || wk.category === ugcFilter)
         .map(({ wk, i }) => ({
           brand: wk.brand || "", title: wk.title || "", meta: [wk.category, wk.platform].filter(Boolean).join(" · "),
-          poster: wk.poster, alt: wk.title || "UGC video " + wk.n,
+          poster: wk.poster, alt: wk.title || "Video " + wk.n,
           hasPoster: !!wk.poster,
           videoThumb: !wk.poster && !!wk.videoUrl, thumbSrc: wk.videoUrl ? wk.videoUrl + "#t=0.5" : "",
           noImg: !wk.poster && !wk.videoUrl,
-          ph: "UGC " + wk.n + " — add videoUrl + poster → ugc.videos[" + i + "]",
+          ph: "Video " + wk.n + " — add videoUrl + poster → ugc.videos[" + i + "]",
           on: () => this.setState({ videoIdx: i })
         })),
 
