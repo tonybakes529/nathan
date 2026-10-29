@@ -1,0 +1,4 @@
+node_modules/
+media/
+.vercel
+.DS_Store

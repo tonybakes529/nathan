@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- seo:start — written from content.js by `npm run build`. Don't edit by hand. -->
+<title>Your Name — UGC Creator &amp; Creative Strategist</title>
+<meta name="description" content="UGC creator and creative strategist making native, scroll-stopping videos for brands.">
+<meta property="og:title" content="Your Name — UGC Creator &amp; Creative Strategist">
+<meta property="og:description" content="UGC creator and creative strategist making native, scroll-stopping videos for brands.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23FF5A1F%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20text-anchor%3D%22middle%22%20font-family%3D%22-apple-system%2CHelvetica%2CArial%2Csans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%3EY%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#F3F0EB">
+<!-- seo:end -->
+<!--
+  This file is the page layout. You shouldn't need to touch it.
+  All of your words, links, photos and videos live in content.js.
+-->
+<script src="./content.js"></script>
+<script src="./theme.js"></script>
+<script src="./support.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; text-wrap: pretty; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--ink); }
+  button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  @keyframes bm-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<x-dc>
+
+<div style="background: var(--bg);">
+
+  <header style="position: sticky; top: 0; z-index: 60; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--line);">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px); height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="#top" onClick="{{ goTop }}" style="display: flex; align-items: center; gap: 10px; color: var(--ink);">
+        <sc-if value="{{ hasLogo }}" hint-placeholder-val="{{ false }}">
+          <img src="{{ logo }}" alt="" style="height: 30px; width: auto; object-fit: contain; display: block;">
+        </sc-if>
+        <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.01em;">{{ name }}</span>
+      </a>
+
+      <nav aria-label="Primary" style="display: {{ navDisplay }}; align-items: center; gap: clamp(20px, 2.2vw, 34px);">
+        <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="4">
+          <a href="{{ l.href }}" onClick="{{ l.on }}" style="font-size: 14px; font-weight: 500; letter-spacing: -0.005em; color: var(--text-2); transition: color .25s ease;" style-hover="color: var(--accent);">{{ l.label }}</a>
+        </sc-for>
+        <a href="{{ ctaHref }}" target="{{ ctaTarget }}" rel="noopener noreferrer" style="display: inline-flex; align-items: center; height: 38px; padding: 0 20px; border-radius: 980px; background: var(--accent); color: var(--on-accent); font-size: 14px; font-weight: 600; letter-spacing: -0.005em; transition: opacity .25s ease;" style-hover="opacity: 0.86; color: var(--on-accent);">{{ ctaLabel }}</a>
+      </nav>
+
+      <button type="button" aria-label="Open menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}" style="display: {{ burgerDisplay }}; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 44px; height: 44px; background: none; border: 1px solid var(--line-2); border-radius: 12px; cursor: pointer;">
+        <span style="display: block; width: 17px; height: 1.5px; background: var(--ink); border-radius: 2px;"></span>
+        <span style="display: block; width: 17px; height: 1.5px; background: var(--ink); border-radius: 2px;"></span>
+      </button>
+    </div>
+
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav aria-label="Mobile" style="border-top: 1px solid var(--line); background: var(--bg);">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 8px clamp(22px, 4vw, 48px) 24px; display: flex; flex-direction: column;">
+          <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="4">
+            <a href="{{ l.href }}" onClick="{{ l.on }}" style="display: flex; align-items: center; min-height: 56px; font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); border-bottom: 1px solid var(--line);">{{ l.label }}</a>
+          </sc-for>
+          <a href="{{ ctaHref }}" target="{{ ctaTarget }}" rel="noopener noreferrer" style="margin-top: 20px; display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 980px; background: var(--accent); color: var(--on-accent); font-size: 15px; font-weight: 600;">{{ ctaLabel }}</a>
+        </div>
+      </nav>
+    </sc-if>
+  </header>
+
+  <main id="top">
+
+    <section aria-label="Intro" style="background: var(--bg); padding: clamp(56px, 7vw, 104px) 0 clamp(72px, 8vw, 120px); overflow: hidden;">
+      <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px);">
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; min-width: 0;">
+          <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);">{{ hero.eyebrow }}</p>
+          <h1 data-reveal="1" style="margin: 20px auto 0; max-width: 16ch; font-size: clamp(38px, 5vw, 74px); font-weight: 700; line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance;">
+            <sc-for list="{{ hero.headline }}" as="line" hint-placeholder-count="3">
+              <span style="display: block;">{{ line }}</span>
+            </sc-for>
+          </h1>
+          <sc-if value="{{ hero.hasIntro }}" hint-placeholder-val="{{ true }}">
+            <p data-reveal="1" style="margin: 24px auto 0; max-width: 46ch; font-size: clamp(16px, 1.15vw, 19px); line-height: 1.55; letter-spacing: -0.01em; color: var(--text);">{{ hero.intro }}</p>
+          </sc-if>
+          <div style="margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; width: 100%; max-width: 440px;">
+            <sc-if value="{{ hasWork }}" hint-placeholder-val="{{ true }}">
+              <button type="button" onClick="{{ goWork }}" style="flex: 1 1 180px; height: 54px; padding: 0 30px; cursor: pointer; border: 1px solid var(--accent); border-radius: 980px; background: var(--accent); color: var(--on-accent); font-family: inherit; font-size: 15px; font-weight: 600; letter-spacing: -0.005em; transition: opacity .25s ease;" style-hover="opacity: 0.86;">{{ hero.button }}</button>
+            </sc-if>
+            <a href="{{ ctaHref }}" target="{{ ctaTarget }}" rel="noopener noreferrer" style="flex: 1 1 180px; display: inline-flex; align-items: center; justify-content: center; height: 54px; padding: 0 30px; border: 1px solid var(--line-3); border-radius: 980px; background: transparent; color: var(--ink); font-size: 15px; font-weight: 600; letter-spacing: -0.005em; transition: background .25s ease, border-color .25s ease;" style-hover="background: var(--hover); border-color: var(--line-3-hover); color: var(--ink);">{{ ctaLabel }}</a>
+          </div>
+        </div>
+
+        <sc-if value="{{ show.brands }}" hint-placeholder-val="{{ true }}">
+          <div style="margin-top: clamp(56px, 6vw, 92px);">
+            <p style="margin: 0 0 28px; text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);">{{ brandsLabel }}</p>
+
+            <div style="position: relative;">
+              <div style="overflow: hidden;">
+                <div style="display: flex; width: max-content; animation: bm-marquee {{ marqueeDur }} linear infinite;" style-hover="animation-play-state: paused;">
+                  <sc-for list="{{ marquee }}" as="b" hint-placeholder-count="12">
+                    <div aria-hidden="{{ b.aria }}" style="flex: 0 0 auto; height: 56px; padding: 0 clamp(22px, 2.4vw, 40px); display: flex; align-items: center; justify-content: center;">
+                      <sc-if value="{{ b.isWide }}" hint-placeholder-val="{{ false }}">
+                        <img src="{{ b.logo }}" alt="{{ b.alt }}" loading="lazy" style="height: 34px; width: auto; max-width: 190px; object-fit: contain; opacity: 0.92; transition: opacity .35s ease, transform .35s ease;" style-hover="opacity: 1; transform: scale(1.04);">
+                      </sc-if>
+                      <sc-if value="{{ b.isTall }}" hint-placeholder-val="{{ false }}">
+                        <img src="{{ b.logo }}" alt="{{ b.alt }}" loading="lazy" style="height: 56px; width: auto; max-width: 140px; object-fit: contain; opacity: 0.92; transition: opacity .35s ease, transform .35s ease;" style-hover="opacity: 1; transform: scale(1.04);">
+                      </sc-if>
+                      <sc-if value="{{ b.isSquare }}" hint-placeholder-val="{{ false }}">
+                        <img src="{{ b.logo }}" alt="{{ b.alt }}" loading="lazy" style="height: 52px; width: 52px; object-fit: contain; border-radius: 12px; opacity: 0.92; transition: opacity .35s ease, transform .35s ease;" style-hover="opacity: 1; transform: scale(1.04);">
+                      </sc-if>
+                      <sc-if value="{{ b.noImg }}" hint-placeholder-val="{{ true }}">
+                        <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 18px; font-size: 14px; font-weight: 600; letter-spacing: -0.005em; color: var(--muted); border: 1px solid var(--line-2); border-radius: 12px; white-space: nowrap; transition: color .35s ease, border-color .35s ease;" style-hover="color: var(--accent); border-color: var(--accent);">{{ b.alt }}</span>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <div aria-hidden="true" style="position: absolute; inset: 0 auto 0 0; width: clamp(48px, 9vw, 140px); background: linear-gradient(90deg, var(--bg), transparent);"></div>
+              <div aria-hidden="true" style="position: absolute; inset: 0 0 0 auto; width: clamp(48px, 9vw, 140px); background: linear-gradient(270deg, var(--bg), transparent);"></div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <sc-if value="{{ show.about }}" hint-placeholder-val="{{ true }}">
+      <section id="about" style="background: {{ bg.about }}; padding: clamp(80px, 9vw, 152px) 0;">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px);">
+          <div style="display: grid; grid-template-columns: {{ twoCols }}; gap: clamp(36px, 4.4vw, 72px); align-items: start;">
+            <div>
+              <h2 data-reveal="1" style="margin: 0; max-width: 16ch; font-size: clamp(32px, 4.2vw, 58px); font-weight: 700; line-height: 1.06; letter-spacing: -0.03em;">{{ about.heading }}</h2>
+              <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 18px; max-width: 58ch; font-size: clamp(16px, 1.15vw, 18px); line-height: 1.6; letter-spacing: -0.005em; color: var(--text);">
+                <sc-for list="{{ about.paragraphs }}" as="para" hint-placeholder-count="3">
+                  <p style="margin: 0;">{{ para }}</p>
+                </sc-for>
+              </div>
+              <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px;">
+                <sc-for list="{{ about.specialties }}" as="s" hint-placeholder-count="6">
+                  <span style="display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border: 1px solid var(--line-2); border-radius: 980px; background: {{ about.chipBg }}; font-size: 13px; font-weight: 500; letter-spacing: -0.005em; color: var(--text-2);">{{ s }}</span>
+                </sc-for>
+              </div>
+            </div>
+
+            <div data-reveal="1" style="border-radius: 20px; overflow: hidden;">
+              <sc-if value="{{ about.photo.hasImg }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ about.photo.src }}" alt="{{ about.photo.alt }}" loading="lazy" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px;" />
+              </sc-if>
+              <sc-if value="{{ about.photo.noImg }}" hint-placeholder-val="{{ true }}">
+                <div role="img" aria-label="{{ about.photo.alt }}" style="width: 100%; aspect-ratio: 4 / 5; border-radius: 20px; border: 1px solid var(--line-2); background-color: var(--ph); background-image: repeating-linear-gradient(135deg, var(--ph-stripe) 0 12px, var(--ph) 12px 24px); display: flex; align-items: flex-end; padding: 16px;">
+                  <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; color: var(--faint);">{{ about.photo.ph }}</span>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ show.results }}" hint-placeholder-val="{{ true }}">
+      <section id="results" style="background: {{ bg.results }}; padding: clamp(80px, 9vw, 152px) 0;">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px);">
+          <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 data-reveal="1" style="margin: 0; max-width: 22ch; font-size: clamp(32px, 4.2vw, 58px); font-weight: 700; line-height: 1.06; letter-spacing: -0.03em;">
+              <sc-for list="{{ results.heading }}" as="line" hint-placeholder-count="2">
+                <span style="display: block;">{{ line }}</span>
+              </sc-for>
+            </h2>
+          </div>
+
+          <sc-if value="{{ results.hasStats }}" hint-placeholder-val="{{ true }}">
+            <div id="stats" style="margin-top: clamp(44px, 5.4vw, 84px); display: grid; grid-template-columns: {{ statCols }}; gap: clamp(14px, 1.4vw, 20px);">
+              <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+                <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 1px 2px rgba(10,10,10,0.03); padding: clamp(24px, 2.4vw, 34px); min-height: 172px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px;">
+                  <div style="font-size: clamp(34px, 3.4vw, 50px); font-weight: 700; line-height: 1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums;">{{ s.display }}</div>
+                  <div style="font-size: 13px; font-weight: 500; line-height: 1.4; letter-spacing: -0.005em; color: var(--muted-2);">{{ s.label }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ results.hasCases }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top: clamp(40px, 4.4vw, 68px);">
+              <p style="margin: 0 0 24px; text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);">{{ results.casesLabel }}</p>
+
+              <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 1px 2px rgba(10,10,10,0.03); overflow: hidden;">
+                <div role="tablist" aria-label="Case studies" style="display: flex; align-items: center; gap: 8px; padding: 12px clamp(12px, 1.4vw, 18px); border-bottom: 1px solid var(--line); background: var(--surface-2); overflow-x: auto;">
+                  <sc-for list="{{ caseTabs }}" as="t" hint-placeholder-count="3">
+                    <button type="button" role="tab" aria-selected="{{ t.active }}" onClick="{{ t.on }}" style="cursor: pointer; flex: 0 0 auto; height: 36px; padding: 0 16px; border-radius: 980px; font-family: inherit; font-size: 13px; font-weight: 500; letter-spacing: -0.005em; white-space: nowrap; transition: background .25s ease, color .25s ease, border-color .25s ease; background: {{ t.bg }}; color: {{ t.fg }}; border: 1px solid {{ t.bd }};">{{ t.label }}</button>
+                  </sc-for>
+                </div>
+
+                <div style="padding: clamp(16px, 1.8vw, 24px); display: grid; grid-template-columns: {{ caseCols }}; gap: clamp(14px, 1.4vw, 20px);">
+                  <sc-for list="{{ casePanels }}" as="p" hint-placeholder-count="3">
+                    <figure style="margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column;">
+                      <sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ false }}">
+                        <img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: {{ p.fit }}; background: {{ p.imgBg }};">
+                      </sc-if>
+                      <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}">
+                        <div role="img" aria-label="{{ p.alt }}" style="width: 100%; aspect-ratio: 16 / 10; background-color: var(--ph); background-image: repeating-linear-gradient(135deg, var(--ph-stripe) 0 12px, var(--ph) 12px 24px); display: flex; align-items: flex-end; padding: 16px;">
+                          <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; color: var(--faint);">{{ p.ph }}</span>
+                        </div>
+                      </sc-if>
+                      <figcaption style="padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+                        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">{{ p.platform }}</div>
+                        <div style="font-size: 17px; font-weight: 600; letter-spacing: -0.01em;">{{ p.client }}</div>
+                        <sc-if value="{{ p.hasStat }}" hint-placeholder-val="{{ true }}">
+                          <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; color: var(--text);">{{ p.stat }}</div>
+                        </sc-if>
+                        <p style="margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted);">{{ p.description }}</p>
+                      </figcaption>
+                    </figure>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ show.ugc }}" hint-placeholder-val="{{ true }}">
+      <section id="ugc" style="background: {{ bg.ugc }}; padding: clamp(80px, 9vw, 152px) 0;">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px);">
+          <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 data-reveal="1" style="margin: 0; font-size: clamp(32px, 4.2vw, 58px); font-weight: 700; line-height: 1.06; letter-spacing: -0.03em;">{{ ugc.heading }}</h2>
+            <sc-if value="{{ ugc.hasSub }}" hint-placeholder-val="{{ true }}">
+              <p style="margin: 20px 0 0; max-width: 56ch; font-size: clamp(16px, 1.15vw, 18px); line-height: 1.6; letter-spacing: -0.005em; color: var(--text);">{{ ugc.subheading }}</p>
+            </sc-if>
+          </div>
+
+          <sc-if value="{{ ugc.hasFilters }}" hint-placeholder-val="{{ true }}">
+            <div role="group" aria-label="Filter UGC work" style="margin: 32px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+              <sc-for list="{{ ugcFilters }}" as="f" hint-placeholder-count="6">
+                <button type="button" aria-pressed="{{ f.active }}" onClick="{{ f.on }}" style="cursor: pointer; height: 40px; padding: 0 18px; border-radius: 980px; font-family: inherit; font-size: 14px; font-weight: 500; letter-spacing: -0.005em; transition: background .25s ease, color .25s ease, border-color .25s ease; background: {{ f.bg }}; color: {{ f.fg }}; border: 1px solid {{ f.bd }};">{{ f.label }}</button>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <div style="margin-top: clamp(36px, 4vw, 56px); display: grid; grid-template-columns: {{ ugcCols }}; gap: clamp(12px, 1.1vw, 18px);">
+            <sc-for list="{{ ugcList }}" as="v" hint-placeholder-count="6">
+              <button type="button" onClick="{{ v.on }}" style="cursor: pointer; padding: 0; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: 0 1px 2px rgba(10,10,10,0.03); overflow: hidden; text-align: left; font-family: inherit; display: flex; flex-direction: column; transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 12px 32px rgba(10,10,10,0.09);">
+                <div style="position: relative; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; background: var(--ph);">
+                  <sc-if value="{{ v.hasPoster }}" hint-placeholder-val="{{ false }}">
+                    <img src="{{ v.poster }}" alt="{{ v.alt }}" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+                  </sc-if>
+                  <sc-if value="{{ v.videoThumb }}" hint-placeholder-val="{{ false }}">
+                    <video src="{{ v.thumbSrc }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-label="{{ v.alt }}" style="display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+                  </sc-if>
+                  <sc-if value="{{ v.noImg }}" hint-placeholder-val="{{ true }}">
+                    <div role="img" aria-label="{{ v.alt }}" style="width: 100%; height: 100%; background-color: var(--ph); background-image: repeating-linear-gradient(135deg, var(--ph-stripe) 0 12px, var(--ph) 12px 24px); display: flex; align-items: flex-end; padding: 16px;">
+                      <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; color: var(--faint);">{{ v.ph }}</span>
+                    </div>
+                  </sc-if>
+                  <span aria-hidden="true" style="position: absolute; bottom: 10px; left: 10px; width: 30px; height: 30px; border-radius: 980px; background: rgba(10,10,10,0.62); backdrop-filter: blur(6px); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 10px; padding-left: 2px;">▶</span>
+                </div>
+                <div style="padding: 13px 14px 15px; display: flex; flex-direction: column; gap: 6px; min-height: 96px;">
+                  <div style="min-height: 12px; font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">{{ v.brand }}</div>
+                  <div style="font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.32;">{{ v.title }}</div>
+                  <div style="margin-top: auto; font-size: 11.5px; color: var(--muted);">{{ v.meta }}</div>
+                </div>
+              </button>
+            </sc-for>
+          </div>
+
+          <sc-if value="{{ ugc.hasButton }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top: clamp(40px, 4.6vw, 68px); display: flex; justify-content: center;">
+              <a href="{{ ctaHref }}" target="{{ ctaTarget }}" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; height: 54px; padding: 0 34px; border: 1px solid var(--accent); border-radius: 980px; background: var(--accent); color: var(--on-accent); font-size: 15px; font-weight: 600; letter-spacing: -0.005em; transition: opacity .25s ease;" style-hover="opacity: 0.86; color: var(--on-accent);">{{ ugc.buttonLabel }}</a>
+            </div>
+          </sc-if>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ show.testimonials }}" hint-placeholder-val="{{ true }}">
+      <section id="testimonials" style="background: {{ bg.testimonials }}; padding: clamp(80px, 9vw, 152px) 0; overflow: hidden;">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px);">
+
+          <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 data-reveal="1" style="margin: 0; max-width: 22ch; font-size: clamp(32px, 4.2vw, 58px); font-weight: 700; line-height: 1.06; letter-spacing: -0.03em;">{{ testimonialsHeading }}</h2>
+          </div>
+
+          <sc-if value="{{ hasVideoTestimonials }}" hint-placeholder-val="{{ true }}">
+            <div data-reveal="1" style="margin-top: clamp(40px, 4.4vw, 64px); max-width: {{ videoGridMax }}; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: {{ videoCols }}; gap: clamp(12px, 1.1vw, 18px);">
+              <sc-for list="{{ videoTestimonials }}" as="v" hint-placeholder-count="3">
+                <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                  <sc-if value="{{ v.isVimeo }}" hint-placeholder-val="{{ false }}">
+                    <div style="position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #0A0A0A;">
+                      <iframe src="{{ v.vimeoSrc }}" title="{{ v.title }}" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerPolicy="strict-origin-when-cross-origin" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ v.isFile }}" hint-placeholder-val="{{ false }}">
+                    <video src="{{ v.video }}" poster="{{ v.poster }}" controls="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-label="{{ v.title }}" style="display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #0A0A0A; border-radius: 14px; border: 1px solid var(--line);"></video>
+                  </sc-if>
+                  <sc-if value="{{ v.noVideo }}" hint-placeholder-val="{{ true }}">
+                    <div role="img" aria-label="{{ v.title }} placeholder" style="width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; border: 1px solid var(--line-2); background-color: var(--ph); background-image: repeating-linear-gradient(135deg, var(--ph-stripe) 0 12px, var(--ph) 12px 24px); display: flex; flex-direction: column; justify-content: space-between; padding: 18px;">
+                      <span style="align-self: flex-start; padding: 6px 12px; border-radius: 980px; background: var(--surface); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">9:16 Video</span>
+                      <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; color: var(--faint);">{{ v.ph }}</span>
+                    </div>
+                  </sc-if>
+                  <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+                    <span style="font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">{{ v.name }}</span>
+                    <span style="font-size: 11.5px; line-height: 1.4; color: var(--muted);">{{ v.byline }}</span>
+                  </figcaption>
+                </figure>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ showQuotesGrid }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top: clamp(36px, 4vw, 56px); max-width: {{ quoteGridMax }}; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: {{ testimonialCols }}; gap: clamp(12px, 1.1vw, 18px); align-items: stretch;">
+              <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+                <blockquote onClick="{{ t.onOpen }}" style="margin: 0; height: 100%; cursor: {{ t.cursor }}; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 1px 2px rgba(10,10,10,0.03); padding: 14px; display: flex; flex-direction: column; gap: 10px; min-height: 0; transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 12px 32px rgba(10,10,10,0.09);">
+                  <div style="font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">{{ t.label }}</div>
+                  <sc-if value="{{ t.isText }}" hint-placeholder-val="{{ true }}">
+                    <p style="margin: 0; flex: 1; font-size: 13px; line-height: 1.45; letter-spacing: -0.01em; font-weight: 500; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 9; -webkit-box-orient: vertical; overflow: hidden;">{{ t.quote }}</p>
+                  </sc-if>
+                  <sc-if value="{{ t.isShot }}" hint-placeholder-val="{{ false }}">
+                    <div style="flex: 1; display: flex; align-items: center;">
+                      <img src="{{ t.image }}" alt="Testimonial from {{ t.name }}" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 9px; border: 1px solid var(--line);" />
+                    </div>
+                  </sc-if>
+                  <footer style="display: flex; align-items: center; gap: 9px; padding-top: 11px; border-top: 1px solid var(--line);">
+                    <sc-if value="{{ t.hasHeadshot }}" hint-placeholder-val="{{ false }}">
+                      <img src="{{ t.headshot }}" alt="{{ t.name }}" loading="lazy" style="flex: 0 0 auto; width: 32px; height: 32px; border-radius: 980px; object-fit: cover; border: 1px solid var(--line-2);" />
+                    </sc-if>
+                    <sc-if value="{{ t.noHeadshot }}" hint-placeholder-val="{{ true }}">
+                      <div aria-hidden="true" style="flex: 0 0 auto; width: 32px; height: 32px; border-radius: 980px; background: var(--hover); border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--muted);">{{ t.initial }}</div>
+                    </sc-if>
+                    <div style="min-width: 0;">
+                      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">{{ t.name }}</div>
+                      <div style="font-size: 11px; line-height: 1.4; color: var(--muted);">{{ t.byline }}</div>
+                    </div>
+                  </footer>
+                </blockquote>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ showQuotesCarousel }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top: 40px;">
+              <div style="overflow: hidden;" onTouchStart="{{ onTouchStart }}" onTouchEnd="{{ onTouchEnd }}">
+                <div style="display: flex; transition: transform .5s cubic-bezier(.2,.7,.2,1); transform: {{ tTrack }};">
+                  <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+                    <div style="flex: 0 0 100%; min-width: 0; padding: 0 2px;">
+                      <blockquote onClick="{{ t.onOpen }}" style="margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 1px 2px rgba(10,10,10,0.03); padding: 14px; display: flex; flex-direction: column; gap: 10px; min-height: 0;">
+                        <div style="font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">{{ t.label }}</div>
+                        <sc-if value="{{ t.isText }}" hint-placeholder-val="{{ true }}">
+                          <p style="margin: 0; flex: 1; font-size: 13px; line-height: 1.45; letter-spacing: -0.01em; font-weight: 500; color: var(--ink);">{{ t.quote }}</p>
+                        </sc-if>
+                        <sc-if value="{{ t.isShot }}" hint-placeholder-val="{{ false }}">
+                          <div style="flex: 1; display: flex; align-items: center;">
+                            <img src="{{ t.image }}" alt="Testimonial from {{ t.name }}" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 9px; border: 1px solid var(--line);" />
+                          </div>
+                        </sc-if>
+                        <footer style="display: flex; align-items: center; gap: 9px; padding-top: 11px; border-top: 1px solid var(--line);">
+                          <sc-if value="{{ t.hasHeadshot }}" hint-placeholder-val="{{ false }}">
+                            <img src="{{ t.headshot }}" alt="{{ t.name }}" loading="lazy" style="flex: 0 0 auto; width: 32px; height: 32px; border-radius: 980px; object-fit: cover; border: 1px solid var(--line-2);" />
+                          </sc-if>
+                          <sc-if value="{{ t.noHeadshot }}" hint-placeholder-val="{{ true }}">
+                            <div aria-hidden="true" style="flex: 0 0 auto; width: 32px; height: 32px; border-radius: 980px; background: var(--hover); border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--muted);">{{ t.initial }}</div>
+                          </sc-if>
+                          <div style="min-width: 0;">
+                            <div style="font-size: 12.5px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">{{ t.name }}</div>
+                            <div style="font-size: 11px; line-height: 1.4; color: var(--muted);">{{ t.byline }}</div>
+                          </div>
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <div role="tablist" aria-label="Testimonial navigation" style="display: flex; justify-content: center; gap: 8px; margin-top: 20px;">
+                <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
+                  <button type="button" role="tab" aria-selected="{{ d.active }}" aria-label="{{ d.label }}" onClick="{{ d.on }}" style="cursor: pointer; width: 44px; height: 44px; border: none; background: none; display: flex; align-items: center; justify-content: center;">
+                    <span style="display: block; width: 8px; height: 8px; border-radius: 980px; transition: background .25s ease; background: {{ d.bg }};"></span>
+                  </button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ show.design }}" hint-placeholder-val="{{ true }}">
+      <section id="design" style="background: {{ bg.design }}; padding: clamp(80px, 9vw, 152px) 0;">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px);">
+          <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 data-reveal="1" style="margin: 0; max-width: 24ch; font-size: clamp(32px, 4.2vw, 58px); font-weight: 700; line-height: 1.06; letter-spacing: -0.03em;">{{ design.heading }}</h2>
+            <sc-if value="{{ design.hasSub }}" hint-placeholder-val="{{ true }}">
+              <p style="margin: 20px 0 0; max-width: 60ch; font-size: clamp(16px, 1.15vw, 18px); line-height: 1.6; letter-spacing: -0.005em; color: var(--text);">{{ design.subheading }}</p>
+            </sc-if>
+          </div>
+
+          <div style="height: clamp(36px, 4vw, 56px);"></div>
+
+          <div style="display: grid; grid-template-columns: {{ designCols }}; gap: clamp(16px, 1.8vw, 26px);">
+            <sc-for list="{{ designList }}" as="d" hint-placeholder-count="4">
+              <button type="button" onClick="{{ d.on }}" style="cursor: pointer; padding: 0; border: none; background: none; text-align: left; font-family: inherit; color: inherit; display: flex; flex-direction: column; gap: 16px;">
+                <div style="width: 100%; aspect-ratio: {{ d.ratio }}; border-radius: 18px; overflow: hidden; border: 1px solid var(--line-2); background: var(--ph);">
+                  <sc-if value="{{ d.hasImg }}" hint-placeholder-val="{{ false }}">
+                    <img src="{{ d.cover }}" alt="{{ d.alt }}" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform: scale(1.03);">
+                  </sc-if>
+                  <sc-if value="{{ d.noImg }}" hint-placeholder-val="{{ true }}">
+                    <div role="img" aria-label="{{ d.alt }}" style="width: 100%; height: 100%; background-color: var(--ph); background-image: repeating-linear-gradient(135deg, var(--ph-stripe) 0 12px, var(--ph) 12px 24px); display: flex; align-items: flex-end; padding: 18px;">
+                      <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; color: var(--faint);">{{ d.ph }}</span>
+                    </div>
+                  </sc-if>
+                </div>
+                <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; min-height: 26px;">
+                  <div style="min-width: 0;">
+                    <div style="font-size: 17px; font-weight: 600; letter-spacing: -0.012em; color: var(--ink);">{{ d.title }}</div>
+                    <div style="margin-top: 4px; font-size: 13px; color: var(--muted);">{{ d.client }}</div>
+                  </div>
+                </div>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+
+    <footer style="background: #0A0A0A; color: #86807A; border-top: 1px solid #1B1B1B; padding: 40px 0;">
+      <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px);">
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 32px; padding-bottom: 30px; border-bottom: 1px solid #1B1B1B;">
+          <div>
+            <sc-if value="{{ hasEmail }}" hint-placeholder-val="{{ true }}">
+              <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #86807A;">Email</div>
+              <a href="{{ mailto }}" style="display: inline-block; margin-top: 8px; font-size: clamp(18px, 1.9vw, 26px); font-weight: 600; letter-spacing: -0.02em; color: #F3F0EB; word-break: break-word; transition: color .25s ease;" style-hover="color: var(--accent);">{{ email }}</a>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+              <a href="{{ s.url }}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border: 1px solid #2E2E2E; border-radius: 980px; font-size: 13px; font-weight: 500; letter-spacing: -0.005em; color: #F3F0EB; transition: border-color .25s ease, color .25s ease;" style-hover="border-color: var(--accent); color: var(--accent);">
+                <span>{{ s.label }}</span>
+                <span aria-hidden="true" style="font-size: 11px; opacity: 0.7;">↗</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #F3F0EB;">{{ name }}</div>
+            <div style="margin-top: 6px; font-size: 13px;">{{ footerTagline }}</div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px;">
+            <span style="font-size: 13px;">{{ copyright }}</span>
+            <button type="button" onClick="{{ goTop }}" style="cursor: pointer; height: 44px; padding: 0 20px; border: 1px solid #2E2E2E; border-radius: 980px; background: transparent; color: #F3F0EB; font-family: inherit; font-size: 13px; font-weight: 500; transition: border-color .25s ease, color .25s ease;" style-hover="border-color: var(--accent); color: var(--accent);">Back to Top ↑</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <sc-if value="{{ videoOpen }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-label="Project video" onClick="{{ closeVideo }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(8,8,8,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); display: flex; align-items: center; justify-content: center; padding: clamp(16px, 3vw, 40px);">
+      <div onClick="{{ stop }}" style="width: min(980px, 100%); max-height: 90vh; overflow: auto; background: #101010; border: 1px solid #262626; border-radius: 22px; padding: clamp(18px, 2.2vw, 28px); display: grid; grid-template-columns: {{ modalCols }}; gap: clamp(20px, 2.4vw, 32px); align-items: start;">
+        <div>
+          <sc-if value="{{ video.hasVideo }}" hint-placeholder-val="{{ false }}">
+            <video src="{{ video.videoUrl }}" poster="{{ video.poster }}" controls="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; border-radius: 16px;"></video>
+          </sc-if>
+          <sc-if value="{{ video.noVideo }}" hint-placeholder-val="{{ true }}">
+            <div role="img" aria-label="{{ video.alt }}" style="width: 100%; aspect-ratio: 9 / 16; border-radius: 16px; border: 1px dashed #3A3A3A; background-color: #141414; background-image: repeating-linear-gradient(135deg, #1B1B1B 0 12px, #141414 12px 24px); display: flex; align-items: flex-end; padding: 18px;">
+              <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 1.5; color: #A7A7A7;">{{ video.ph }}</span>
+            </div>
+          </sc-if>
+        </div>
+        <div style="min-width: 0; color: #F3F0EB;">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+            <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">{{ video.brand }}</div>
+            <button type="button" aria-label="Close" onClick="{{ closeVideo }}" style="cursor: pointer; flex: 0 0 auto; width: 40px; height: 40px; border-radius: 980px; border: 1px solid #2E2E2E; background: transparent; color: #F3F0EB; font-family: inherit; font-size: 15px; transition: border-color .25s ease, color .25s ease;" style-hover="border-color: var(--accent); color: var(--accent);">✕</button>
+          </div>
+          <h3 style="margin: 14px 0 0; font-size: clamp(24px, 2.6vw, 34px); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em;">{{ video.title }}</h3>
+          <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <sc-for list="{{ video.tags }}" as="tag" hint-placeholder-count="2">
+              <span style="display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border: 1px solid #2E2E2E; border-radius: 980px; font-size: 13px; color: #B9B4AD;">{{ tag }}</span>
+            </sc-for>
+          </div>
+          <sc-if value="{{ video.hasDescription }}" hint-placeholder-val="{{ true }}">
+            <p style="margin: 20px 0 0; font-size: 15px; line-height: 1.62; color: #B9B4AD;">{{ video.description }}</p>
+          </sc-if>
+          <sc-if value="{{ video.hasResults }}" hint-placeholder-val="{{ true }}">
+            <p style="margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: #86807A;">{{ video.results }}</p>
+          </sc-if>
+          <sc-if value="{{ video.hasLink }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ video.link }}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; height: 48px; margin-top: 24px; padding: 0 24px; background: var(--accent); color: var(--on-accent); border-radius: 980px; font-size: 14px; font-weight: 600; transition: opacity .25s ease;" style-hover="opacity: 0.86; color: var(--on-accent);">View Original ↗</a>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ shotOpen }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-label="Testimonial" onClick="{{ closeShot }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(8,8,8,0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); display: flex; align-items: center; justify-content: center; padding: clamp(16px, 3vw, 40px);">
+      <div onClick="{{ stop }}" style="width: min(760px, 100%); max-height: 90vh; overflow: auto; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; color: #F3F0EB;">
+          <div style="min-width: 0;">
+            <div style="font-size: 17px; font-weight: 600; letter-spacing: -0.012em;">{{ shot.name }}</div>
+            <div style="margin-top: 4px; font-size: 13px; color: #86807A;">{{ shot.byline }}</div>
+          </div>
+          <button type="button" aria-label="Close" onClick="{{ closeShot }}" style="cursor: pointer; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 980px; border: 1px solid #2E2E2E; background: transparent; color: #F3F0EB; font-family: inherit; font-size: 15px; transition: border-color .25s ease, color .25s ease;" style-hover="border-color: var(--accent); color: var(--accent);">✕</button>
+        </div>
+        <img src="{{ shot.image }}" alt="Testimonial from {{ shot.name }}" style="display: block; width: 100%; height: auto; max-height: 72vh; object-fit: contain; border-radius: 14px;">
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ lightOpen }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-label="Design project" onClick="{{ closeLight }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(8,8,8,0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); display: flex; flex-direction: column; padding: clamp(16px, 3vw, 36px); gap: 20px;">
+      <div style="width: 100%; max-width: 1320px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #F3F0EB;">
+        <div style="min-width: 0;">
+          <div style="font-size: 17px; font-weight: 600; letter-spacing: -0.012em;">{{ light.title }}</div>
+          <div style="margin-top: 4px; font-size: 13px; color: #86807A;">{{ light.client }}</div>
+        </div>
+        <button type="button" aria-label="Close" onClick="{{ closeLight }}" style="cursor: pointer; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 980px; border: 1px solid #2E2E2E; background: transparent; color: #F3F0EB; font-family: inherit; font-size: 15px; transition: border-color .25s ease, color .25s ease;" style-hover="border-color: var(--accent); color: var(--accent);">✕</button>
+      </div>
+      <div onClick="{{ stop }}" onTouchStart="{{ onTouchStart }}" onTouchEnd="{{ onLightTouchEnd }}" style="flex: 1; min-height: 0; width: 100%; max-width: 1320px; margin: 0 auto; display: flex; align-items: center; gap: clamp(10px, 1.6vw, 20px);">
+        <sc-if value="{{ light.multi }}" hint-placeholder-val="{{ false }}">
+          <button type="button" aria-label="Previous slide" onClick="{{ prevSlide }}" style="cursor: pointer; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 980px; border: 1px solid #2E2E2E; background: rgba(20,20,20,0.86); color: #F3F0EB; font-family: inherit; font-size: 17px; transition: border-color .25s ease, color .25s ease;" style-hover="border-color: var(--accent); color: var(--accent);">‹</button>
+        </sc-if>
+        <div style="flex: 1; min-width: 0; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <sc-if value="{{ light.hasImg }}" hint-placeholder-val="{{ false }}">
+            <img src="{{ light.slideSrc }}" alt="{{ light.slideAlt }}" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 14px;">
+          </sc-if>
+          <sc-if value="{{ light.noImg }}" hint-placeholder-val="{{ true }}">
+            <div role="img" aria-label="{{ light.slideAlt }}" style="width: min(100%, 640px); max-height: 100%; aspect-ratio: {{ light.ratio }}; border-radius: 14px; border: 1px dashed #3A3A3A; background-color: #141414; background-image: repeating-linear-gradient(135deg, #1B1B1B 0 12px, #141414 12px 24px); display: flex; align-items: flex-end; padding: 20px;">
+              <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 1.5; color: #A7A7A7;">{{ light.slidePh }}</span>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ light.multi }}" hint-placeholder-val="{{ false }}">
+          <button type="button" aria-label="Next slide" onClick="{{ nextSlide }}" style="cursor: pointer; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 980px; border: 1px solid #2E2E2E; background: rgba(20,20,20,0.86); color: #F3F0EB; font-family: inherit; font-size: 17px; transition: border-color .25s ease, color .25s ease;" style-hover="border-color: var(--accent); color: var(--accent);">›</button>
+        </sc-if>
+      </div>
+      <div style="text-align: center; color: #86807A; font-size: 13px;">
+        <sc-if value="{{ light.multi }}" hint-placeholder-val="{{ false }}">
+          <span>{{ light.counter }}</span>
+        </sc-if>
+        <p style="margin: 8px auto 0; max-width: 70ch; line-height: 1.55;">{{ light.description }}</p>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // Everything personal comes from content.js (window.PORTFOLIO).
+  // normalize() fills in defaults so a missing or deleted field never breaks the page.
+  C = this.normalize(window.PORTFOLIO || {});
+
+  state = {
+    vw: (typeof document === "undefined" ? 1440 : Math.max(
+      document.documentElement ? document.documentElement.clientWidth : 0,
+      typeof window === "undefined" ? 0 : (window.innerWidth || 0)
+    )) || 1440,
+    menuOpen: false,
+    ugcFilter: "All",
+    caseIdx: 0,
+    videoIdx: null,
+    tShotIdx: null,
+    lightIdx: null,
+    slide: 0,
+    t: 0,
+    statVals: null
+  };
+
+  normalize(P) {
+    const arr = (x) => (Array.isArray(x) ? x.filter(Boolean) : []);
+    const str = (x) => (x == null ? "" : String(x).trim());
+    const lines = (x) => (Array.isArray(x) ? x.map(str) : str(x).split("\n")).filter(Boolean);
+    const obj = (x) => (x && typeof x === "object" ? x : {});
+    const on = (s) => s.show !== false;
+    const pad = (i) => String(i + 1).padStart(2, "0");
+
+    const site = obj(P.site), contact = obj(P.contact), hero = obj(P.hero), brands = obj(P.brands);
+    const about = obj(P.about), results = obj(P.results), ugc = obj(P.ugc);
+    const tm = obj(P.testimonials), design = obj(P.design), footer = obj(P.footer);
+    const name = str(site.name) || "Your Name";
+    const role = str(site.role);
+
+    return {
+      name, role, logo: str(site.logo) || null,
+      email: str(contact.email),
+      bookingUrl: str(contact.bookingUrl),
+      ctaLabel: str(contact.buttonLabel) || "Let’s Connect",
+      socials: arr(contact.socials).filter((s) => str(s.url)).map((s) => ({ label: str(s.label) || str(s.url), url: str(s.url) })),
+
+      hero: {
+        eyebrow: hero.eyebrow != null ? str(hero.eyebrow) : [name, role].filter(Boolean).join(" — "),
+        headline: lines(hero.headline).length ? lines(hero.headline) : [name],
+        intro: str(hero.intro),
+        button: str(hero.workButtonLabel) || "View My Work"
+      },
+
+      brands: {
+        show: on(brands),
+        label: brands.label != null ? str(brands.label) : "Past Collaborations",
+        seconds: Number(brands.scrollSeconds) || 64,
+        logos: arr(brands.logos).map((b) => (typeof b === "string" ? { name: b } : b))
+      },
+
+      about: {
+        show: on(about), navLabel: about.navLabel != null ? str(about.navLabel) : "About",
+        heading: str(about.heading), paragraphs: lines(about.paragraphs),
+        photo: obj(about.photo), specialties: arr(about.specialties).map(str)
+      },
+
+      results: {
+        show: on(results), navLabel: results.navLabel != null ? str(results.navLabel) : "Results",
+        heading: lines(results.heading),
+        stats: arr(results.stats).map((s) => ({ value: str(s.value), label: str(s.label) })),
+        casesLabel: results.caseStudiesLabel != null ? str(results.caseStudiesLabel) : "Case Studies",
+        caseStudies: arr(results.caseStudies).map((c) => ({ client: str(c.client), panels: arr(c.panels) }))
+      },
+
+      ugc: {
+        show: on(ugc), navLabel: ugc.navLabel != null ? str(ugc.navLabel) : "UGC Work",
+        heading: str(ugc.heading), subheading: str(ugc.subheading),
+        buttonLabel: ugc.buttonLabel != null ? str(ugc.buttonLabel) : "Let’s Create Something",
+        videos: arr(ugc.videos).map((v, i) => Object.assign({}, v, { n: pad(i) }))
+      },
+
+      testimonials: {
+        show: on(tm), navLabel: str(tm.navLabel),
+        heading: str(tm.heading),
+        videos: arr(tm.videos).map((v, i) => Object.assign({}, v, { n: pad(i) })),
+        quotes: arr(tm.quotes).map((q, i) => Object.assign({}, q, { n: pad(i) }))
+      },
+
+      design: {
+        show: on(design), navLabel: design.navLabel != null ? str(design.navLabel) : "Design",
+        heading: str(design.heading), subheading: str(design.subheading),
+        items: arr(design.items).map((d, i) => Object.assign({}, d, { n: pad(i) }))
+      },
+
+      footerTagline: footer.tagline != null ? str(footer.tagline) : role,
+      copyrightName: str(footer.copyrightName) || name
+    };
+  }
+
+  reduced() {
+    return typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  componentDidMount() {
+    // Width is measured from the real layout box (works inside embeds/iframes where
+    // window.innerWidth can be stale and no resize event ever fires).
+    this._measure = () => {
+      const de = document.documentElement;
+      const w = Math.max(de ? de.clientWidth : 0, document.body ? document.body.clientWidth : 0, window.innerWidth || 0);
+      if (w && w !== this.state.vw) this.setState({ vw: w });
+    };
+    this._onResize = this._measure;
+    window.addEventListener("resize", this._onResize);
+    if (typeof ResizeObserver !== "undefined") {
+      this._ro = new ResizeObserver(this._measure);
+      if (document.documentElement) this._ro.observe(document.documentElement);
+      if (document.body) this._ro.observe(document.body);
+    }
+    this._measure();
+    requestAnimationFrame(this._measure);
+    this._measureTimer = setTimeout(this._measure, 400);
+
+    this._onKey = (e) => {
+      if (e.key === "Escape") this.setState({ videoIdx: null, lightIdx: null, tShotIdx: null, menuOpen: false });
+      if (this.state.lightIdx !== null) {
+        if (e.key === "ArrowRight") this.step(1);
+        if (e.key === "ArrowLeft") this.step(-1);
+      }
+    };
+    window.addEventListener("keydown", this._onKey);
+
+    if (!this.reduced()) {
+      const els = Array.from(document.querySelectorAll("[data-reveal]"));
+      els.forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1)";
+      });
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.style.opacity = "1";
+            en.target.style.transform = "none";
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach((el) => io.observe(el));
+      this._io = io;
+      this._revealFallback = setTimeout(() => {
+        els.forEach((el) => { el.style.opacity = "1"; el.style.transform = "none"; });
+        io.disconnect();
+      }, 1600);
+
+      const stats = document.getElementById("stats");
+      if (stats) {
+        this.setState({ statVals: this.C.results.stats.map((s) => this.zeroed(s.value)) });
+        const sio = new IntersectionObserver((entries) => {
+          if (entries.some((e) => e.isIntersecting)) { sio.disconnect(); this.runCounters(); }
+        }, { threshold: 0.3 });
+        sio.observe(stats);
+        this._sio = sio;
+        this._statFallback = setTimeout(() => {
+          sio.disconnect();
+          if (!this._counted) this.setState({ statVals: null });
+        }, 1600);
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._onResize);
+    window.removeEventListener("keydown", this._onKey);
+    if (this._ro) this._ro.disconnect();
+    if (this._measureTimer) clearTimeout(this._measureTimer);
+    if (this._io) this._io.disconnect();
+    if (this._sio) this._sio.disconnect();
+    if (this._revealFallback) clearTimeout(this._revealFallback);
+    if (this._statFallback) clearTimeout(this._statFallback);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+
+  parseNum(v) { const m = /^([\d.]+)(.*)$/.exec(String(v).trim()); return m ? { n: parseFloat(m[1]), suffix: m[2] } : null; }
+  zeroed(v) { const p = this.parseNum(v); return p ? (p.n < 10 ? "0.0" : "0") + p.suffix : v; }
+
+  runCounters() {
+    this._counted = true;
+    if (this._statFallback) clearTimeout(this._statFallback);
+    const stats = this.C.results.stats;
+    const targets = stats.map((s) => this.parseNum(s.value));
+    const start = performance.now();
+    const dur = 1400;
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      this.setState({
+        statVals: stats.map((s, i) => {
+          const t = targets[i];
+          if (!t) return s.value;
+          if (p === 1) return s.value;
+          const v = t.n * eased;
+          return (t.n < 10 ? v.toFixed(1) : Math.round(v).toLocaleString()) + t.suffix;
+        })
+      });
+      if (p < 1) this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 64, behavior: this.reduced() ? "auto" : "smooth" });
+    this.setState({ menuOpen: false });
+  }
+
+  step(dir) {
+    const p = this.C.design.items[this.state.lightIdx];
+    if (!p) return;
+    const n = Math.max(1, this.slides(p).length);
+    this.setState({ slide: (this.state.slide + dir + n) % n });
+  }
+
+  slides(p) { const s = (p.images && p.images.length ? p.images : [p.cover]).filter(Boolean); return s.length ? s : [null]; }
+
+  cols(n) { return "repeat(" + n + ", minmax(0, 1fr))"; }
+
+  filterBtn(label, active, on) {
+    return { label, active, on, bg: active ? "var(--ink)" : "transparent", fg: active ? "var(--bg)" : "var(--text-2)", bd: active ? "var(--ink)" : "var(--line-2)" };
+  }
+
+  ph(src, placeholder) { return { hasImg: !!src, noImg: !src, ph: placeholder }; }
+
+  byline(role, company) { return [role, company].filter(Boolean).join(" · "); }
+
+  renderVals() {
+    const C = this.C;
+    const st = this.state;
+    const w = st.vw;
+    const isMobile = w < 860;
+
+    // Which sections have something to show. Empty sections hide themselves.
+    const show = {
+      brands: C.brands.show && C.brands.logos.length > 0,
+      about: C.about.show && !!(C.about.heading || C.about.paragraphs.length),
+      results: C.results.show && (C.results.stats.length > 0 || C.results.caseStudies.length > 0),
+      ugc: C.ugc.show && C.ugc.videos.length > 0,
+      testimonials: C.testimonials.show && (C.testimonials.videos.length > 0 || C.testimonials.quotes.length > 0),
+      design: C.design.show && C.design.items.length > 0
+    };
+    const order = ["about", "results", "ugc", "testimonials", "design"];
+    const visible = order.filter((k) => show[k]);
+
+    // Alternate section backgrounds so neighbours never share a colour, whatever is hidden.
+    const bg = {};
+    visible.forEach((k, i) => { bg[k] = i % 2 === 0 ? "var(--bg-alt)" : "var(--bg)"; });
+
+    const nav = visible.filter((k) => C[k].navLabel).map((k) => ({ label: C[k].navLabel, id: k }));
+    const workId = ["ugc", "design", "results"].find((k) => show[k]);
+
+    const external = !!C.bookingUrl;
+    const mailto = C.email ? "mailto:" + C.email : "#";
+
+    // ---- results ----------------------------------------------------------
+    const activeCase = Math.min(st.caseIdx, Math.max(0, C.results.caseStudies.length - 1));
+    const cs = C.results.caseStudies[activeCase] || { client: "", panels: [] };
+    const casePanels = cs.panels.map((pn, i) => Object.assign({
+      platform: pn.platform || "", client: cs.client, stat: pn.stat || "", hasStat: !!pn.stat,
+      description: pn.description || "", src: pn.image,
+      fit: pn.fit || "cover", imgBg: pn.imageBackground || "transparent",
+      alt: (cs.client + " " + (pn.platform || "") + " results").trim()
+    }, this.ph(pn.image, "Add a 16:10 screenshot → results.caseStudies[" + activeCase + "].panels[" + i + "].image")));
+
+    // ---- ugc --------------------------------------------------------------
+    const ugcCats = ["All"].concat(C.ugc.videos.map((v) => v.category).filter((c, i, a) => c && a.indexOf(c) === i));
+    const ugcFilter = ugcCats.indexOf(st.ugcFilter) >= 0 ? st.ugcFilter : "All";
+
+    const vi = st.videoIdx;
+    const v = vi === null ? null : C.ugc.videos[vi];
+    const video = v ? {
+      brand: v.brand || "", title: v.title || "", tags: [v.category, v.platform].filter(Boolean),
+      description: v.description || "", hasDescription: !!v.description,
+      results: v.results || "", hasResults: !!v.results,
+      poster: v.poster || undefined,
+      videoUrl: v.videoUrl, hasVideo: !!v.videoUrl, noVideo: !v.videoUrl,
+      alt: v.title || "UGC video " + v.n, ph: "Add videoUrl + poster → ugc.videos[" + vi + "]",
+      link: v.link, hasLink: !!v.link
+    } : {};
+
+    // ---- testimonials -----------------------------------------------------
+    const quotes = C.testimonials.quotes;
+    const tsi = st.tShotIdx;
+    const ts = tsi === null ? null : quotes[tsi];
+    const shot = ts ? { image: ts.image, name: ts.name || "", byline: this.byline(ts.role, ts.company) } : {};
+
+    // ---- design -----------------------------------------------------------
+    const designList = C.design.items.map((d, i) => Object.assign({
+      title: d.title || "", client: d.client || "", ratio: d.ratio || "16 / 9", cover: d.cover, alt: d.title || "Design " + d.n,
+      on: () => this.setState({ lightIdx: i, slide: 0 })
+    }, this.ph(d.cover, "Add a cover image → design.items[" + i + "].cover")));
+
+    const li = st.lightIdx;
+    const lp = li === null ? null : C.design.items[li];
+    const lslides = lp ? this.slides(lp) : [];
+    const idx = lp ? Math.min(st.slide, lslides.length - 1) : 0;
+    const cur = lp ? lslides[idx] : null;
+    const light = lp ? Object.assign({
+      client: lp.client || "", title: lp.title || "", ratio: lp.ratio || "16 / 9", description: lp.description || "",
+      counter: (idx + 1) + " / " + lslides.length,
+      multi: lslides.length > 1,
+      slideSrc: cur, slideAlt: (lp.title || "Design " + lp.n) + " — slide " + (idx + 1),
+      slidePh: "Add a cover image → design.items[" + li + "].cover"
+    }, this.ph(cur, "")) : {};
+
+    return {
+      name: C.name, logo: C.logo, hasLogo: !!C.logo,
+      navLinks: nav.map((n) => ({ label: n.label, href: "#" + n.id, on: (e) => { e.preventDefault(); this.scrollTo(n.id); } })),
+      navDisplay: isMobile ? "none" : "flex",
+      burgerDisplay: isMobile ? "flex" : "none",
+      menuOpen: st.menuOpen && isMobile,
+      toggleMenu: () => this.setState({ menuOpen: !st.menuOpen }),
+      goTop: (e) => { if (e && e.preventDefault) e.preventDefault(); window.scrollTo({ top: 0, behavior: this.reduced() ? "auto" : "smooth" }); this.setState({ menuOpen: false }); },
+      hasWork: !!workId,
+      goWork: () => this.scrollTo(workId),
+      stop: (e) => e.stopPropagation(),
+
+      ctaLabel: C.ctaLabel,
+      ctaHref: external ? C.bookingUrl : mailto,
+      ctaTarget: external ? "_blank" : "_self",
+
+      show, bg,
+      hero: Object.assign({}, C.hero, { hasIntro: !!C.hero.intro }),
+
+      brandsLabel: C.brands.label,
+      marqueeDur: C.brands.seconds + "s",
+      marquee: C.brands.logos.concat(C.brands.logos).map((b, i) => {
+        const shape = b.logo ? (b.shape || "wide") : "";
+        return {
+          logo: b.logo, alt: b.name || "", aria: i >= C.brands.logos.length ? "true" : "false",
+          isWide: shape === "wide", isTall: shape === "tall", isSquare: shape === "square", noImg: !b.logo
+        };
+      }),
+
+      twoCols: w < 900 ? this.cols(1) : this.cols(2),
+      about: {
+        heading: C.about.heading, paragraphs: C.about.paragraphs, specialties: C.about.specialties,
+        chipBg: bg.about === "var(--bg)" ? "var(--bg-alt)" : "var(--bg)",
+        photo: Object.assign({ src: C.about.photo.src, alt: C.about.photo.alt || "Photo of " + C.name },
+          this.ph(C.about.photo.src, "Add a 4:5 photo of you → about.photo.src"))
+      },
+
+      results: {
+        heading: C.results.heading,
+        hasStats: C.results.stats.length > 0,
+        hasCases: C.results.caseStudies.length > 0,
+        casesLabel: C.results.casesLabel
+      },
+      stats: C.results.stats.map((s, i) => ({ label: s.label, display: st.statVals ? st.statVals[i] : s.value })),
+      statCols: this.cols(w >= 1120 ? Math.min(4, C.results.stats.length) : (w >= 620 ? Math.min(2, C.results.stats.length) : 1)),
+      caseTabs: C.results.caseStudies.map((c, i) => this.filterBtn(c.client, i === activeCase, () => this.setState({ caseIdx: i }))),
+      caseCols: this.cols(Math.min(w >= 1000 ? 3 : (w >= 640 ? 2 : 1), Math.max(1, casePanels.length))),
+      casePanels,
+
+      ugc: {
+        heading: C.ugc.heading, subheading: C.ugc.subheading, hasSub: !!C.ugc.subheading,
+        buttonLabel: C.ugc.buttonLabel, hasButton: !!C.ugc.buttonLabel,
+        hasFilters: ugcCats.length > 2
+      },
+      ugcFilters: ugcCats.map((c) => this.filterBtn(c, c === ugcFilter, () => this.setState({ ugcFilter: c }))),
+      ugcCols: this.cols(w >= 1180 ? 5 : (w >= 980 ? 4 : (w >= 760 ? 3 : 2))),
+      ugcList: C.ugc.videos.map((wk, i) => ({ wk, i }))
+        .filter(({ wk }) => ugcFilter === "All" || wk.category === ugcFilter)
+        .map(({ wk, i }) => ({
+          brand: wk.brand || "", title: wk.title || "", meta: [wk.category, wk.platform].filter(Boolean).join(" · "),
+          poster: wk.poster, alt: wk.title || "UGC video " + wk.n,
+          hasPoster: !!wk.poster,
+          videoThumb: !wk.poster && !!wk.videoUrl, thumbSrc: wk.videoUrl ? wk.videoUrl + "#t=0.5" : "",
+          noImg: !wk.poster && !wk.videoUrl,
+          ph: "UGC " + wk.n + " — add videoUrl + poster → ugc.videos[" + i + "]",
+          on: () => this.setState({ videoIdx: i })
+        })),
+
+      testimonialsHeading: C.testimonials.heading,
+      hasVideoTestimonials: C.testimonials.videos.length > 0,
+      showQuotesGrid: quotes.length > 0 && !isMobile,
+      showQuotesCarousel: quotes.length > 0 && isMobile,
+      // Up to 3 per row; with fewer items the grid narrows instead of stretching them.
+      testimonialCols: this.cols(Math.max(1, Math.min(3, quotes.length))),
+      quoteGridMax: Math.max(1, Math.min(3, quotes.length)) * 248 + "px",
+      videoCols: this.cols(Math.max(1, Math.min(w >= 760 ? 3 : 2, C.testimonials.videos.length))),
+      videoGridMax: Math.max(1, Math.min(w >= 760 ? 3 : 2, C.testimonials.videos.length)) * 248 + "px",
+      videoTestimonials: C.testimonials.videos.map((tv, i) => ({
+        title: tv.name ? "Video testimonial from " + tv.name : "Video testimonial " + tv.n,
+        name: tv.name || "", byline: tv.quote || this.byline(tv.role, tv.company),
+        vimeoSrc: tv.vimeo ? "https://player.vimeo.com/video/" + tv.vimeo + "?badge=0&autopause=0&player_id=0&app_id=58479" : null,
+        // Without a poster, "#t=0.5" makes the browser show a frame instead of a black box.
+        video: tv.video ? tv.video + (tv.poster ? "" : "#t=0.5") : null, poster: tv.poster || undefined,
+        isVimeo: !!tv.vimeo, isFile: !tv.vimeo && !!tv.video, noVideo: !tv.vimeo && !tv.video,
+        ph: "Add a Vimeo ID or 9:16 MP4 → testimonials.videos[" + i + "]"
+      })),
+      testimonials: quotes.map((q, i) => ({
+        label: q.label || q.company || "Testimonial " + q.n,
+        quote: q.quote || "", name: q.name || "",
+        cursor: q.image ? "pointer" : "default",
+        onOpen: q.image ? () => this.setState({ tShotIdx: i }) : undefined,
+        image: q.image || null, isShot: !!q.image, isText: !q.image,
+        headshot: q.headshot || null, hasHeadshot: !!q.headshot, noHeadshot: !q.headshot,
+        initial: (q.name || "?").trim().charAt(0).toUpperCase(),
+        byline: this.byline(q.role, q.company)
+      })),
+      tTrack: "translateX(-" + Math.min(st.t, Math.max(0, quotes.length - 1)) * 100 + "%)",
+      dots: quotes.map((q, i) => ({
+        label: "Show testimonial " + (i + 1), active: i === st.t,
+        bg: i === st.t ? "var(--accent)" : "var(--line-3)", on: () => this.setState({ t: i })
+      })),
+      onTouchStart: (e) => { this._tx = e.touches[0].clientX; },
+      onTouchEnd: (e) => {
+        const dx = e.changedTouches[0].clientX - (this._tx || 0);
+        if (Math.abs(dx) > 40) this.setState({ t: Math.min(quotes.length - 1, Math.max(0, st.t + (dx < 0 ? 1 : -1))) });
+      },
+      onLightTouchEnd: (e) => {
+        const dx = e.changedTouches[0].clientX - (this._tx || 0);
+        if (Math.abs(dx) > 40) this.step(dx < 0 ? 1 : -1);
+      },
+
+      design: { heading: C.design.heading, subheading: C.design.subheading, hasSub: !!C.design.subheading },
+      designCols: this.cols(w >= 900 ? 2 : 1),
+      designList,
+
+      email: C.email, hasEmail: !!C.email,
+      mailto,
+      socials: C.socials,
+      footerTagline: C.footerTagline,
+      copyright: "© " + new Date().getFullYear() + " " + C.copyrightName + ". All rights reserved.",
+
+      videoOpen: vi !== null, video, closeVideo: () => this.setState({ videoIdx: null }),
+      shotOpen: tsi !== null, shot, closeShot: () => this.setState({ tShotIdx: null }),
+      modalCols: w >= 760 ? "minmax(0, 340px) minmax(0, 1fr)" : this.cols(1),
+      lightOpen: li !== null, light,
+      closeLight: () => this.setState({ lightIdx: null }),
+      prevSlide: (e) => { e.stopPropagation(); this.step(-1); },
+      nextSlide: (e) => { e.stopPropagation(); this.step(1); }
+    };
+  }
+}
+
+</script>
+</body>
+</html>
